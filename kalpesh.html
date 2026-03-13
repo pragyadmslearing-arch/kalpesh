@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="hi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalpesh Pravin Maheta | Modern Anaj Business</title>
+    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #c67d1d;
+            --accent: #f39c12;
+            --glass: rgba(255, 255, 255, 0.85);
+            --text: #2c3e50;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: 'Mukta', sans-serif;
+            margin: 0;
+            background: #fdf6ec;
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        /* --- Hero Section with Real Image --- */
+        .hero {
+            position: relative;
+            height: 45vh;
+            background: url('https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?auto=format&fit=crop&q=80&w=1200') center/cover no-repeat;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), #fdf6ec);
+        }
+
+        /* --- Floating Language Switcher --- */
+        .lang-bar {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            padding: 4px;
+            border-radius: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border: 1px solid white;
+            display: flex;
+        }
+
+        .lang-btn {
+            border: none;
+            background: none;
+            padding: 8px 16px;
+            font-weight: 700;
+            cursor: pointer;
+            border-radius: 25px;
+            transition: 0.3s;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .lang-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* --- Main Content Card --- */
+        .card {
+            position: relative;
+            z-index: 2;
+            width: 92%;
+            max-width: 500px;
+            margin: -80px auto 40px;
+            background: var(--glass);
+            backdrop-filter: blur(15px);
+            border-radius: 24px;
+            padding: 30px 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            border: 1px solid white;
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-top: -90px;
+            background: #eee;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            margin: 15px 0 5px;
+            color: #1a1a1a;
+        }
+
+        .subtitle {
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin: 25px 0;
+        }
+
+        .feature-item {
+            background: rgba(255, 255, 255, 0.5);
+            padding: 15px;
+            border-radius: 15px;
+            border: 1px solid rgba(0, 0, 0, 0.03);
+        }
+
+        .feature-item img {
+            width: 35px;
+            margin-bottom: 8px;
+        }
+
+        /* --- Mobile CTA --- */
+        .call-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            padding: 16px;
+            border-radius: 16px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            gap: 10px;
+            box-shadow: 0 8px 25px rgba(198, 125, 29, 0.3);
+            transition: 0.3s;
+        }
+
+        .call-btn:active {
+            transform: scale(0.96);
+        }
+
+        .footer-text {
+            font-size: 0.85rem;
+            color: #888;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="lang-bar">
+        <button id="btn-hi" class="lang-btn active" onclick="updateLang('hi')">हिन्दी</button>
+        <button id="btn-gu" class="lang-btn" onclick="updateLang('gu')">ગુજરાતી</button>
+    </div>
+
+    <section class="hero"></section>
+
+    <main class="card">
+        <img src="https://ui-avatars.com/api/?name=Kalpesh+Maheta&background=c67d1d&color=fff&size=128" alt="Profile"
+            class="profile-img">
+
+        <h1 id="name">कल्पेश प्रवीण महेતા</h1>
+        <div class="subtitle" id="biz-name">अनाज खरीद व्यवसाय (Anaj Business)</div>
+
+        <div class="feature-grid">
+            <div class="feature-item">
+                <div style="font-size: 1.5rem;">🌾</div>
+                <div id="f1">सर्वोत्तम भाव</div>
+            </div>
+            <div class="feature-item">
+                <div style="font-size: 1.5rem;">⚖️</div>
+                <div id="f2">सटीक वजन</div>
+            </div>
+            <div class="feature-item">
+                <div style="font-size: 1.5rem;">💰</div>
+                <div id="f3">नकद भुगतान</div>
+            </div>
+            <div class="feature-item">
+                <div style="font-size: 1.5rem;">🤝</div>
+                <div id="f4">पक्का भरोसा</div>
+            </div>
+        </div>
+
+        <p id="description" style="margin-bottom: 30px; line-height: 1.5; color: #555;">
+            हम किसानों से गेहूं, बाजरा और सभी प्रकार के अनाज की सीधी खरीद करते हैं। ईमानदारी और पारदर्शिता ही हमारी
+            पहचान है।
+        </p>
+
+        <a href="tel:9825565053" class="call-btn">
+            <span>📞</span> <span id="btn-text">अभी कॉल करें</span>
+        </a>
+
+        <div class="footer-text">
+            9825565053 | Kalpesh Pravin Maheta
+        </div>
+    </main>
+
+    <script>
+        const translations = {
+            hi: {
+                name: "कल्पेश प्रवीण महेता",
+                biz: "अनाज खरीद व्यवसाय",
+                f1: "सर्वोत्तम भाव", f2: "सटीक वजन", f3: "नकद भुगतान", f4: "पक्का भरोसा",
+                desc: "हम किसानों से गेहूं, बाजरा और सभी प्रकार के अनाज की सीधी खरीद करते हैं। ईमानदारी और पारदर्शिता ही हमारी पहचान है।",
+                btn: "अभी कॉल करें"
+            },
+            gu: {
+                name: "કલ્પેશ પ્રવીણ મહેતા",
+                biz: "અનાજ ખરીદી વ્યવસાય",
+                f1: "શ્રેષ્ઠ ભાવ", f2: "ચોક્કસ વજન", f3: "રોકડ ચુકવણી", f4: "પાકો વિશ્વાસ",
+                desc: "અમે ખેડૂતો પાસેથી ઘઉં, બાજરી અને તમામ પ્રકારના અનાજની સીધી ખરીદી કરીએ છીએ. પ્રામાણિકતા અને પારદર્શિતા એ જ અમારી ઓળખ છે.",
+                btn: "અત્યારે જ કોલ કરો"
+            }
+        };
+
+        function updateLang(lang) {
+            document.getElementById('name').innerText = translations[lang].name;
+            document.getElementById('biz-name').innerText = translations[lang].biz;
+            document.getElementById('f1').innerText = translations[lang].f1;
+            document.getElementById('f2').innerText = translations[lang].f2;
+            document.getElementById('f3').innerText = translations[lang].f3;
+            document.getElementById('f4').innerText = translations[lang].f4;
+            document.getElementById('description').innerText = translations[lang].desc;
+            document.getElementById('btn-text').innerText = translations[lang].btn;
+
+            document.getElementById('btn-hi').classList.toggle('active', lang === 'hi');
+            document.getElementById('btn-gu').classList.toggle('active', lang === 'gu');
+        }
+    </script>
+
+</body>
+
+</html>
